@@ -1,0 +1,162 @@
+{% extends 'default_theme/base/__base.html' %}
+{% load staticfiles %} 
+
+{% load form_custom %}
+
+
+{% block Style_sheets %}
+{{ subadmin_formset.media.css }}
+
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+
+ {% block Content_Area %}
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+     
+   	 <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">{{ Title}}</h3>
+          <div class="box-tools pull-right">
+            {% comment %}
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+            {% endcomment %}
+          </div>
+        </div>
+        {% if messages %}
+     {% for message in messages %}
+     <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+         <!-- form start -->
+         <form role="form" action="" method='post' enctype="multipart/form-data" >
+             {% csrf_token %} 
+             {{ form.media }}
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-8">
+              
+              <!-- /.form-group -->
+
+              <div class="form-group">
+                  <label >Type
+                  </label>
+               <select name="category" class="form-control currencypair_select" placeholder="Type" id="id_category" required="">
+                  <option value="0" selected="">All User</option>
+                  {% comment %}
+                  <option value="1" >Registered User</option>
+                  {% endcomment %}
+                  <option value="2">Subscriber User</option>
+                 
+                  <option value="3">Specific User</option>
+                </select>  
+            </div>
+            <div class="form-group">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Email Address</th>
+                </tr>
+                </thead>
+                <tbody id='marketprice_rowdata_id'>
+                  {%  if userlist %}
+                  {% for item in userlist %}
+                     <tr>
+                      <td><input type="checkbox" name="userlist" value="{{ item.id }}" id='userid_{{ item.id }}'></td>
+                      <td>{{item.email }} </td>
+                     </tr>
+                  {% endfor %}  
+                  {% endif %}
+                </tbody>
+                 
+               </table>  
+            </div>
+         
+
+            <div class="form-group">
+                
+                  <label >Subject
+                  </label>
+                   <input type="text"  name="subject" id="idsubject" value="" class="form-control" required> 
+            </div>
+            <div class="form-group">
+                
+                  <label >Message
+                  </label>
+                   <textarea name="message" cols="40" rows="10" class="form-control" placeholder="Message" id="id_message" required></textarea> 
+            </div>
+            
+              <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4">
+             
+            <!-- /.col -->
+            </div>
+          </div>
+           <!-- /.second row -->
+        <!-- /.box-body -->
+         <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+         </div>
+          </form>
+      </div>
+
+    </section>
+    <!-- /.content -->
+
+
+
+
+ {% endblock Content_Area %}
+
+ {% block Java_Scripts %}
+<script type="text/javascript" src="{% static 'django_ajax/js/jquery.ajax.min.js' %}"></script>
+
+ <script>
+
+   $('body').on('change', '.currencypair_select', function(){
+        var  user_id = $(this).find(":selected").val();
+       var values= {'category':user_id }
+
+        $.ajax({
+          url: '/support/getuserlist_ajax/',
+          csrfmiddlewaretoken: "{{ csrf_token }}",
+          headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                 },
+          type: 'post',
+          data:JSON.stringify(values),
+          success: function(content){ 
+          var json_obj = JSON.parse(content.content);
+          console.log(json_obj)
+          $("#marketprice_rowdata_id").empty();
+              
+          for (var i = 0; i < json_obj.marketdatalist.length; i++) {
+            //console.log(json_obj.marketdatalist[i].vendor_id)
+
+            $('#marketprice_rowdata_id').append("<tr><td><input type='checkbox' name='userlist' value="+ json_obj.marketdatalist[i].id+" id='userid_"+ json_obj.marketdatalist[i].id+"'></td><td>"+json_obj.marketdatalist[i].email+"</td></tr>");
+
+          }
+          },
+
+        //complete:function(content){
+         
+        //setTimeout(fetchdata,5000);
+        //}
+        });
+      });
+ </script>
+ {% endblock %}
+
+

@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<div class="investmentplan-section">
+            <div class="container">
+               <div class="bbf-token-structure-inn">
+                  <div class="row rows2" data-aos="flip-right" >
+                     <div class="col-md-3">
+                        <div class="package_sec">
+                           <img src="{% static "frontend_assets/images/arr.png"%}" class="" alt="" title="">
+                            <h2>{{content_subtitle.content|safe}}</h2>
+                           <p>{{content_subtitle.title}}</p>
+                        </div>
+                     </div>
+                     <div class="col-md-3 rows-l-r">
+                        <div class="package_sec">
+                           <img src="{% static "frontend_assets/images/arr.png"%}" class="" alt="" title="">
+                          <h2>{{content_valueamount.content|safe}}</h2>
+                           <p>{{content_valueamount.title}}</p>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="package_sec">
+                           <img src="{% static "frontend_assets/images/arr.png"%}" class="" alt="" title="">
+                             <h2>{{content_burnedvalue.content|safe}}</h2>
+                           <p>{{content_burnedvalue.title}}</p>
+                        </div>
+                     </div>
+                     <div class="col-md-3 rows-l-2">
+                        <div class="package_sec">
+                           <img src="{% static "frontend_assets/images/arr.png"%}" class="" alt="" title="">
+                          <h2>{{content_aboutus.content|safe}}</h2>
+                           <p>{{content_aboutus.title}}</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+                  <div class="how-all-start-section">
+            <div class="container">
+               <div class="">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                     <div class="bbf-whitepaper-m mt-5 mb-5">
+                        <h1 class="section_big_heading text-center width_half">{{ dxbfeature.content|safe }}</h1>
+                        <div> </div>
+                     </div>
+                  </div>
+                  <div class="row mb-5">
+                     <div class="col-12 col-lg-6">
+                        <div class="nav flex-column nav-pills" id="about-tab">
+                           <a class="nav-link mb-3 active" id="team-tab-btn" data-toggle="pill" href="#team-tab">
+                              <h4>{{ dxbcontentone.title }}</h4>
+                              <p class="mb-0 text-light">{{ dxbcontentone.content|safe }}</p>
+                           </a>
+                           <a class="nav-link mb-3" id="pool-tab-btn" data-toggle="pill" href="#pool-tab">
+                              <h4>{{ dxbcontentwo.title }}</h4>
+                              <p class="mb-0 text-light">{{ dxbcontentwo.content|safe }}</p>
+                           </a>
+                           <a class="nav-link mb-0" id="reward-tab-btn" data-toggle="pill" href="#reward-tab">
+                              <h4>{{ dxbcontentthree.title }}</h4>
+                              <p class="mb-0 text-light">{{ dxbcontentthree.content|safe }}</p>
+                           </a>
+                        </div>
+                     </div>
+                     <div class="col-12 col-lg-6">
+                        <div class="tab-content" id="v-pills-tabContent">
+                           <div class="tab-pane fade show active" id="team-tab"><img src="{% static "frontend_assets/images/f2.png"%}"" class="img-fluid"></div>
+                           <div class="tab-pane" id="pool-tab"><img src="{% static "frontend_assets/images/f1.png"%}" class="img-fluid"></div>
+                           <div class="tab-pane" id="reward-tab"><img src="{% static "frontend_assets/images/f3.png"%}" class="img-fluid"></div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>

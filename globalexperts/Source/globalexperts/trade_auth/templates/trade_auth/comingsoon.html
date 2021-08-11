@@ -1,0 +1,117 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{comp_profile_name}} - Timer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "frontend_assets/css/timerstyle.css"%}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+</head>
+<body>
+<div class="container-fluid bg-timer">
+  <div class="container">
+    <div class="center-div">
+      <div class="cnt">
+       <img src="/media/{{comp_company_logo}}" class="d-block mx-auto mb-3">
+
+        <div class="mt-4">
+                        <div class="ratio ratio-16x9 justify-content-center d-flex">
+                          {% comment %}
+                          <iframe src="{{companyqs.company_settings.withdrawurl}}" title="YouTube video" allowfullscreen style="height: 400px;width: 85%;"></iframe>
+                          {% endcomment %}
+                          <video width="85%" height="400px" controls autoplay>
+                            {% comment %}
+                            <source src="/media/{{comp_video}}" type="video/mp4"> </source>
+                            <source src="{{companyqs.company_video.url}}" type="video/mp4"> </source>
+                            {% endcomment %}
+                           <source src="{% static "frontend_assets/images/DXB_Crypto_HD.mp4"%}" type="video/mp4"> </source>
+                           
+                        </video>
+                        </div>
+                        
+                     </div>
+        <h3 class="mb-3 mt-3">Coming Soon ... </h3>
+        <p class="mb-4">{{comingsoonmsg}}</p>
+        <div id="demo" class="mb-4">
+          <p id="demo1" class="active"></p>
+          <p id="demo2"></p>
+          <p id="demo3"></p>
+          <p id="demo4"></p>
+        </div>
+       
+      </div>
+    </div>    
+  </div> 
+</div>
+<script>
+  var currencydate ='{{currencydetails.timerdate}}'
+console.log(currencydate,'currencydate')
+var currency_month = '{{currencydetails.timerdate|date:"M"}}'
+var currency_date = '{{currencydetails.timerdate|date:"j"}}'
+var currency_year = '{{currencydetails.timerdate|date:"Y"}}'
+var currency_hours = '{{currencydetails.timerdate|date:"H"}}'
+var currency_minutes = '{{currencydetails.timerdate|date:"i"}}'
+var currency_seconds = '{{currencydetails.timerdate|date:"s"}}'
+
+var calculate_date = currency_month+" "+currency_date +","+" "+currency_year+" "+currency_hours+":"+currency_minutes+":"+currency_seconds;
+var countDownDate = new Date(calculate_date).getTime();
+
+var countDownDate1 = new Date("Jan 5, 2022 15:37:25").getTime();
+
+var x = setInterval(function() {
+
+  
+  var now = new Date().getTime();
+    
+  
+  var distance = countDownDate - now;
+    
+  
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  
+  document.getElementById("demo1").innerHTML = days + '<span class="param">DAYS</span>' ;
+  document.getElementById("demo2").innerHTML = hours + '<span class="param" >HOURS</span>';
+  document.getElementById("demo3").innerHTML = minutes + '<span class="param" >MINUTES</span>';
+  document.getElementById("demo4").innerHTML = seconds + '<span class="param" >SECONDS</span>';
+    
+   
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo1").innerHTML = "0";
+    document.getElementById("demo2").innerHTML = "0";
+    document.getElementById("demo3").innerHTML = "0";
+    document.getElementById("demo4").innerHTML = "0";
+  }
+}, 1000);
+</script>
+<script>
+  $(document).ready(function(){
+   document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+      }, false)
+    
+  });
+  $(document).keydown(function (event) {
+        if (event.keyCode == 123) // Prevent F12
+        { 
+            return false;
+        } 
+        else if(event.ctrlKey && event.shiftKey && event.keyCode == 73)
+        {         
+            return false;
+        }
+    });
+</script>
+</body>
+</html>

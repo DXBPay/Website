@@ -1,0 +1,48 @@
+ <li>
+          <a href="{% url 'trade_master:testimoniallist' %}" >
+            <i class="fa fa-address-card"></i> <span>Manage Our Team</span>
+          </a>
+ </li>
+
+<li class="{% if activecls == 'cmsstaticadmin'%} active {% endif %} treeview">
+          <a href="#">
+            <i class="fa fa-file"></i> <span>CMS Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+             <li><a href="{% url 'trade_master:cmspagecontentlist' %}"><i class="fa fa-circle-o"></i> CMS Home Content </a></li>
+            <li><a href="{% url 'trade_master:cmspagelist' %}"><i class="fa fa-circle-o"></i> CMS Page </a></li>
+            
+          </ul>
+
+        </li>
+
+<li>
+          <a href="{% url 'trade_master:bloglist' %}" >
+            <i class="fa fa-address-card"></i> <span>Manage Blog</span>
+          </a>
+ </li>
+
+ <li>
+          <a href="{% url 'trade_master:videolist' %}" >
+            <i class="fa fa-address-card"></i> <span>Manage Marketing Video</span>
+          </a>
+ </li>
+
+<li>
+          <a href="{% url 'trade_master:contactlist' %}" >
+            <i class="fa fa-address-card"></i> <span>Manage Contact us</span>
+          </a>
+ </li>
+<li>
+  <a  href="{% url 'trade_master:faqlist' %}"><i class="fa fa-question-circle"></i> <span>Manage FAQ</span></a>
+</li>
+<li>
+          <a href="{% url 'trade_master:emailcontactlist' %}">
+            <i class="fa fa-envelope"></i> <span>Manage Email Template</span>
+          </a>
+ </li>
+
+

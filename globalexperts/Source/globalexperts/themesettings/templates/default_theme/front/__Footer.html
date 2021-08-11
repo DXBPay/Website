@@ -1,0 +1,88 @@
+{% load staticfiles %}
+ <div class="contact-section">
+            <div class="container">
+               <div class="row justify-content-center pb-3">
+                  <div class="col-xs-12 col-sm-4 col-md-4">
+                     <div class="contact-l" data-aos="flip-right">
+                       <div>
+                           <h6 class="padd-bot-20"><img src="/media/{{comp_company_logo}}" class="" alt="" title=""></h6>
+                           <p class="text-gray">{{howitstart.content|safe}}
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 col-md-4">
+                     <form method="post" action="/support/subscribe_newsletter_add/">
+                      <div class="contact-r" data-aos="flip-right">
+                           <div class="contact-sec-main d-flex">
+                              <div class="contact-sec-l">
+                                 <h6 class="padd-bot-20">{{howtobbf.title}}</h6>
+                                 <p class="text-gray">{{howtobbf.content|safe}}
+                                 </p>
+                                 <div class="input-group">
+                                  <form id='new_id'>
+                                    {% csrf_token %}
+                                    <input type="email" id="id_email" name="email" class="form-control" placeholder="E-mail address" required aria-label="" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                       <button class="btn"   type="submit">
+                                         <img src="{% static "frontend_assets/images/r-arr.png"%}" class="" alt="" title=""></button>
+                                    </div>
+                                    <p style="color: red; display: none;" id="er1">Enter Email</p>
+                                    <p id="ss" style="color: green; display: none;">Subscribe Success</p>
+                                  </form>
+                                 </div>
+                                 <!-- <p class="warning-txt">enter name properly</p> -->
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+                   <div class="col-xs-12 col-sm-2 col-md-2">
+                     <div class="contact-l" data-aos="flip-right">
+                        <div>
+                           <h6 class="padd-bot-20">{{aboutfooter.title}}</h6>
+                           <ul>
+                              <li><a href="/global/aboutus/">About Us</a></li>
+                               {% comment %}
+                              <li><a href="/global/ourteam/">Our Team</a></li>
+                              {% endcomment %}
+                              <li><a href="/global/contactus/">Contact Us</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-2 col-md-2">
+                    <div class="contact-l" data-aos="flip-right">
+                        <div>
+                           <h6 class="padd-bot-20">{{helpfooter.title}}</h6>
+                           <ul>
+                              <li ><a href="/global/faq/">FAQ</a>
+                              </li>
+                              {% comment %}
+                              <li><a href="#">Help Center</a></li>
+                              <li><a href="/global/privacy/">Privacy Policy</a></li>
+                              <li><a href="/global/terms/">Terms of Use</a></li>
+                              {% endcomment %}
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-lg-12 blue_bor_sec">
+
+                   <div class="down-white-l social_icon aos-init aos-animate justify-content-center d-flex" data-aos="flip-right">
+                              <ul class="mt-4">
+                                 <li><a href="{{ company_fb }}"><i class="fab fa-facebook-f"></i></a></li>
+                                 <li><a href="{{ company_twitter }}"><i class="fab fa-twitter"></i></a></li>
+                                 <li><a href="{{ company_linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
+                                 <li><a href="{{ company_instagram }}"><i class="fab fa-instagram"></i></a></li>
+                                 <li><a href="{{ company_telegram }}"><i class="fab fa-telegram-plane"></i></a></li>
+                                
+                              </ul>
+                           </div>
+                    <div class="index-footer-copyrights text-center">{{copy_right}}</div>
+                  </div>
+               </div>
+            </div>
+         </div>

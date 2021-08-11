@@ -1,0 +1,19 @@
+{% load staticfiles %}
+{% if companyqs.company_settings.withdrawurl %}
+ <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                     <div class="common_para mt-4">
+                        <h1 class="section_big_heading text-center width_half">{{content_aboutuscontent.title}}</h1>
+                     </div>
+                  </div>
+               </div>
+               <div class="row" data-aos="zoom-in">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                     <div class="mt-3">
+                        <div class="ratio ratio-16x9 justify-content-center d-flex">
+                           <iframe src="{{companyqs.company_settings.withdrawurl}}" title="YouTube video" allowfullscreen style="height: 400px;width: 85%;"></iframe>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+{% endif %}

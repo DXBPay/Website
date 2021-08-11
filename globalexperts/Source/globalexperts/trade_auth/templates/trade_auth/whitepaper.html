@@ -1,0 +1,38 @@
+{% extends 'default_theme/front/__staticbase.html' %}
+{% load staticfiles %} 
+{% block Style_sheets %}
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+
+{% block Content_Area %}
+<div class="bbf-whitepaper-section">
+          <div class="container">
+            <div class="row justify-content-center">
+           
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="down-white-l aos-init aos-animate" data-aos="flip-right">
+                  <div class="">
+                    <h5><img src="{% static "frontend_assets/images/Image 3.jpg"%}"  class="img-fluid"></h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="down-white-r aos-init aos-animate" data-aos="flip-right">
+                  <h1>Download Whitepaper</h1>
+                 <p>   Learn more about the innovative technology of DXB. The project is using the latest developments in scalability, cross-chain transfers and asynchronous off-chain communication to expand the latest trends in digital asset use cases.</p>
+                  <div class="text-left mt-3">
+                    {% if currencydetails.attachments.url != None %}
+                    <a href="{{currencydetails.attachments.url}}" class="btn-primary" target="_blank"> Download Whitepaper</a>
+                    {% else %}
+                    <a href="#" class="btn-primary" target="_blank"> Download Whitepaper</a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+ </div>
+{% endblock Content_Area %}
+
+{% block Java_Scripts %}
+{% endblock %}

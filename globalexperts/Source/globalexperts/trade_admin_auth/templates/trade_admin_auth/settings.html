@@ -1,0 +1,277 @@
+{% extends 'default_theme/base/__base.html' %}
+{% load staticfiles %} 
+
+{% load form_custom %}
+
+
+{% block Style_sheets %}
+
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+
+ {% block Content_Area %}
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+     
+   	 <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">{{ Title}}</h3>
+
+          <div class="box-tools pull-right">
+            {% comment %}
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+            {% endcomment %}
+          </div>
+        </div>
+        {% if messages %}
+     {% for message in messages %}
+     <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+         <!-- form start -->
+         <form role="form" action="" method='post' enctype="multipart/form-data" novalidate ="novalidate">
+             {% csrf_token %} 
+             {{ form.media }}
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-6">
+              
+              <!-- /.form-group -->
+               <div class="form-group">
+                  <label >{{form.form1.name.label}}
+                    {% if form.form1.name|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.name class+="form-control" placeholder=form.form1.name.label %}
+                    {% if form.form1.name.errors %}
+                    {% for error in form.form1.name.errors %}
+                     <span class="text-danger">* {{ error|escape }} </span>
+                    {% endfor %}
+                  {% endif %}
+                   
+                </div>
+               <div class="form-group">
+                 <label >{{form.form1.address1.label}}
+                    {% if form.form1.address1|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.address1 class+="form-control" placeholder=form.form1.address1.label %}
+                </div>
+                <div class="form-group">
+                 <label >{{form.form1.email.label}}
+                    {% if form.form1.email|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.email class+="form-control" placeholder=form.form1.email.label %}
+                </div>
+                <div class="form-group">
+                 <label >{{form.form1.phone1.label}}
+                    {% if form.form1.phone1|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.phone1 class+="form-control" placeholder=form.form1.phone1.label %}
+                </div>
+               
+              <!-- /.form-group -->
+               
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+             
+              <div class="form-group">
+                  <label for="exampleInputFile">{{form.form1.company_logo.label}}
+                    {% if form.form1.company_logo|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                  {% render_field form.form1.company_logo %}
+
+                  <img src="/media/{{comp_company_logo}}" alt="Company Logo Image" width='100' height='100'>
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputFile">{{form.form1.company_fav.label}}
+                     {% if form.form1.company_fav|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                  {% render_field form.form1.company_fav %}
+                   <img src="/media/{{company_fav}}" alt="Fav Image" width='100' height='100'>
+              </div>
+              {% comment %}
+              <div class="form-group">
+                  <label for="exampleInputFile">{{form.form1.company_video.label}}
+                     {% if form.form1.company_video|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                  
+                  <input type="file" name="form1-company_video" id="id_form1-company_video" accept="video/*">
+              </div>
+              {% endcomment %}
+               <div class="form-group">
+                 <label >{{form.form1.copy_right.label}}
+                    {% if form.form1.copy_right|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.copy_right class+="form-control" placeholder=form.form1.copy_right.label %}
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="box-header with-border">
+            <h4 class="box-title"></h4>
+            </div>
+           <div class="col-md-6">
+             <div class="form-group">
+                  <label >{{form.form2.depositurl.label}}
+                    {% if form.form2.depositurl|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form2.depositurl class+="form-control" placeholder=form.form2.depositurl.label %}
+            </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label >{{form.form2.withdrawurl.label}}
+                    {% if form.form2.withdrawurl|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form2.withdrawurl class+="form-control" placeholder=form.form2.withdrawurl.label %}
+            </div>
+            </div>
+          </div> 
+          <div class="row">
+           <div class="col-md-6">
+             <div class="form-group">
+                  <label >{{form.form2.coinmarket.label}}
+                    {% if form.form2.coinmarket|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form2.coinmarket class+="form-control" placeholder=form.form2.coinmarket.label %}
+            </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label >{{form.form2.coingecko.label}}
+                    {% if form.form2.coingecko|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form2.coingecko class+="form-control" placeholder=form.form2.coingecko.label %}
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="box-header with-border">
+            <h4 class="box-title">Social Link</h4>
+            </div>
+           <div class="col-md-6">
+            <div class="form-group">
+                  <label >{{form.form1.fb.label}}
+                    {% if form.form1.fb|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.fb class+="form-control" placeholder=form.form1.fb.label %}
+            </div>
+            <div class="form-group">
+                  <label >{{form.form1.twitter.label}}
+                    {% if form.form1.twitter|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.twitter class+="form-control" placeholder=form.form1.twitter.label %}
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                  <label >{{form.form1.gplus.label}}
+                    {% if form.form1.gplus|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.gplus class+="form-control" placeholder=form.form1.gplus.label %}
+              </div>
+              <div class="form-group">
+                  <label >{{form.form1.linkedin.label}}
+                    {% if form.form1.linkedin|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.linkedin class+="form-control" placeholder=form.form1.linkedin.label %}
+             </div>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group">
+                  <label >{{form.form1.instagram.label}}
+                    {% if form.form1.instagram|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.instagram class+="form-control" placeholder=form.form1.instagram.label %}
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group">
+                  <label >{{form.form1.social1.label}}
+                    {% if form.form1.social1|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.social1 class+="form-control" placeholder=form.form1.social1.label %}
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group">
+                  <label >{{form.form1.social2.label}}
+                    {% if form.form1.social2|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.social2 class+="form-control" placeholder=form.form1.social2.label %}
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group">
+                  <label >{{form.form1.social3.label}}
+                    {% if form.form1.social3|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form1.social3 class+="form-control" placeholder=form.form1.social3.label %}
+            </div>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="box-header with-border">
+            <h4 class="box-title">Site Maintain Info</h4>
+            </div>
+           <div class="col-md-6">
+            <div class="form-group">
+                  <label >{{form.form2.site_maintenance_status.label}}
+                    {% if form.form2.site_maintenance_status|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form2.site_maintenance_status class+="form-control" placeholder=form.form2.site_maintenance_status.label %}
+            </div>
+           
+            <div class="form-group">
+                  <label >{{form.form2.adminipaddress.label}}
+                    {% if form.form2.adminipaddress|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form2.adminipaddress class+="form-control" placeholder=form.form2.adminipaddress.label %}
+            </div>
+            </div>
+
+            <div class="col-md-6">
+               
+              <div class="form-group">
+                  <label >{{form.form2.new_coin_status.label}}
+                    {% if form.form2.new_coin_status|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form2.new_coin_status class+="form-control" placeholder=form.form2.new_coin_status.label %}
+             </div>
+             <div class="form-group">
+                  <label >{{form.form2.site_maintenance.label}}
+                    {% if form.form2.site_maintenance|req_label  %} <span class="text-danger"> * </span>{% endif %}
+                  </label>
+                    {%render_field form.form2.site_maintenance class+="form-control" placeholder=form.form2.site_maintenance.label %}
+             </div>
+              
+            </div>
+          </div> 
+        <!-- /.box-body -->
+         <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+         </div>
+          </form>
+      </div>
+
+    </section>
+    <!-- /.content -->
+
+
+
+
+ {% endblock Content_Area %}
+
+ {% block Java_Scripts %}
+
+ {% endblock %}
+
+

@@ -1,0 +1,113 @@
+@media (max-width:767px) {
+    .navbar { padding: 20px; }
+    .logo_header { width: 100%; display: flex; }
+    .logo_header a.navbar-brand { width: 100%; }
+    .logo_header .navbar-toggler { width: 100%; color: #fff; text-align: right; }
+    .banner-sec-inner h1, .banner-sec-inner h1 b { font-size: 42px; line-height: 60px; }
+    .banner-section { padding: 20px; }
+    .navbar-expand-md .navbar-nav .nav-link, .navbar-expand-md .navbar-nav .nav-link.active, .navbar-expand-md .navbar-nav .nav-link:hover { padding-left: 0; }
+    .logo_header .navbar-toggler:focus { border: 0; outline: none; }
+    .coins-btn.text-left button { margin: 0 0 20px; }
+    .banner-sec-rbox.d-flex { display: grid !important; grid-template-columns: auto auto; }
+    .banner-sec-rbox .bsrb { width: 75%; margin: 0 auto; }
+    .join-btn-box .join-btn-m h2 { font-size: 14px; }
+    .aboutus-section-l { padding: 20px;}
+    .aboutus-section { padding: 20px 0;}
+    .how-all-ms { display: grid !important; }
+    .how-all-ms div:nth-child(2) { width: 20%; text-align: center; min-height: 100px; }
+    .how-all-ms div:nth-child(2) b:after { min-height: 85px; }
+    .howto-buy-bbf-section h2 { background: url(../images/icon5.png) 95% 50px no-repeat; background-size: 50%; }
+    .bbf-whitepaper-l-box  { width: auto; }
+    .banner-sec-inner .coins-btn.text-left { text-align: center !important; }
+    .banner-sec-inner { padding: 20px 0 50px 0; }
+    .bbf-whitepaper-section { padding: 20px; }
+    .package_sec { padding: 0 0 20px; }
+    .rows-l-r { border: 0; }
+    .rows2 { padding: 20px 0 0; }
+    .down-white-r { padding: 0; }
+    .buy-left-border
+    {
+    border-left: transparent;
+    }
+    .howto-buy-bbf-section {
+    margin: 0;
+    padding: 0 0;
+}
+.carousel-control.left {
+    text-align: center;
+    left: 10rem;
+    height: 40px;
+    width: 40px;
+    background: #2f2fee;
+    /* border: 4px solid #FFFFFF; */
+    border-radius: 23px 23px 23px 23px;
+    margin-top: 90px;
+    position: absolute;
+    font-size: 30px;
+    top: 59rem;
+    line-height: 32px;
+}
+.carousel-control.right {
+    right: 10rem;
+    text-align: center;
+    height: 40px;..
+    width: 40px;
+    background: #2f2fee;
+    /* border: 4px solid #FFFFFF; */
+    border-radius: 23px 23px 23px 23px;
+    margin-top: 10px;
+    position: absolute;
+    font-size: 30px;
+    top: 64rem;
+    line-height: 32px;
+}
+
+
+.carousel {
+    margin-bottom: 0;
+    padding: 0 40px 68px 40px;
+}
+.con_left_sec {
+   
+    width: 100%;
+    /* margin: 0 41px 0 0; */
+}
+.banner-sec-inner.under-main
+{
+    text-align: center !important;
+ margin: 0 0;
+}
+
+.banner-sec-inner.under-main h1
+{
+    text-align: center !important;
+
+}
+}
+@media (min-width:0px) and (max-width:419px) {
+    .bbf-whitepaper-l-box h2 { padding: 100px 0 0 !important; }
+}
+@media (min-width:576px) and (max-width:767px) {
+    .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7 { -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; }
+    .banner-sec-inner { padding: 20px 0 50px 0; }
+}
+@media (min-width:768px) and (max-width:991px) {
+    .banner-sec-inner h1, .banner-sec-inner h1 b { font-size: 42px; line-height: 60px; }
+    .banner-sec-rbox.d-flex { display: grid !important; grid-template-columns: auto auto; }
+    .banner-sec-rbox .bsrb { width: 75%; margin: 0 auto; }
+    .container { max-width: 98%; }
+    .navbar-expand-md .navbar-nav .nav-link, .navbar-expand-md .navbar-nav .nav-link.active, .navbar-expand-md .navbar-nav .nav-link:hover { padding-left: 15px; }
+    .banner-sec-right { border-radius: 20px; padding: 40px 20px; }
+    .join-btn-box .join-btn-m h2 { font-size: 14px; }
+    .rows-l-r { border: 0; }
+    .rows2 { padding: 20px 0 0; }
+}
+@media (min-width:992px) and (max-width:1024px) {
+    .home-page-header { background-size: cover; }
+    .banner-sec-rbox .bsrb h2 { min-width: 50px; min-height: 50px; padding: 8px 0 0; }
+    .join-btn-box .join-btn-m h2 { font-size: 14px; }
+}
+@media (min-width:1025px) and (max-width:1199px) {
+    .banner-sec-rbox .bsrb h2 { min-width: 50px; min-height: 50px; padding: 8px 0 0; }
+    .join-btn-box .join-btn-m h2 { font-size: 14px; }
+}

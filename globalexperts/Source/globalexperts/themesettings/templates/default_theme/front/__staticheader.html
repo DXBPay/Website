@@ -1,0 +1,43 @@
+{% load staticfiles %}
+
+<header class="">
+         <div class="top-menu">
+            <nav class="navbar navbar-expand-md justify-content-center index-header navbar-fixed-top">
+               <div class="container">
+                  <div class="logo_header"><a class="navbar-brand" href="/">
+                    <img src="/media/{{comp_company_logo}}" class="img-fluid ">
+                   </a>
+                     <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2"> <span class="navbar-toggler-icon fa fa-fw fa-align-justify"></span> </button>
+                  </div>
+                  <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+                     <ul class="navbar-nav ml-auto text-center center-nav-links">
+                        <li class="nav-item"><a class="nav-link {% if activetab == 'home'%} active {% endif %}" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link {% if activetab == 'whitepaper'%} active {% endif %}" href="/global/whitepaper/">Whitepaper</a></li>
+                        <li class="nav-item"><a class="nav-link {% if activetab == 'buytoken'%} active {% endif %}" href="/global/buytoken/">Tokenomics</a></li>
+                         
+                        <li class="nav-item "><a class="nav-link {% if activetab == 'roadmap'%} active {% endif %}" href="/global/roadmap/">Roadmap</a></li>
+                        <li class="nav-item"><a class="nav-link {% if activetab == 'blog'%} active {% endif %}" href="/global/blog/">Blog</a></li>
+                        {% if request.session.walletaddress != '' and request.session.walletaddress != None%}
+                           <li class="nav-item"> <div class="dropdown show">
+                             <button class="btn-primary1 dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                               {{request.session.walletaddress|slice:":15"}} ...
+                             </button>
+                             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                              <a class="dropdown-item" href="/global/walletdetails/">Wallet Details</a>
+                               <a class="dropdown-item" href="/global/disconnectwallet/">Disconnect</a>
+                             </div>
+                           </div></li>
+                        {% else %}
+                           <li class="nav-item">
+                            <button class="btn-primary1 click_metamaskcls" id="click_metamask">Connect Wallet</button>
+                            {% comment %}
+                               <button class="btn-primary1" data-toggle="modal" data-target="#exampleModalw">Connect Wallet</button>
+                            {% endcomment%}
+                           </li>
+                        {% endif %}
+                     </ul>
+                  </div>
+               </div>
+            </nav>
+         </div>
+</header>

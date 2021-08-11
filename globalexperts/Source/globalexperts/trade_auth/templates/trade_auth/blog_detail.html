@@ -1,0 +1,54 @@
+{% extends 'default_theme/front/__staticbase.html' %}
+{% load staticfiles %} 
+{% block Style_sheets %}
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+{% block Content_Area %}     
+ <main>
+      
+         <div class="how-all-start-section">
+            <div class="container">
+             
+             
+               <div class="row justify-content-center">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                     <div class="bbf-whitepaper-m mt-5">
+                        <h1 class="section_big_heading text-center width_half">Blog Detail</h1>
+                        <div> </div>
+                     </div>
+                  </div>
+                 
+                  
+               </div>
+               <div class="row aos-init aos-animate" data-aos="zoom-in">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                     <div class="mt-3">
+                        {% if  blog.blogimage.url != None %}
+                        <img src="{{ blog.blogimage.url }}" class="img-fluid">
+                        {% else %}
+                        <img src="#" class="img-fluid">
+                        {% endif %} 
+                         <h5 class="mt-4">{{ blog.blogtitle }}</h5>
+                          {{ blog.blogcontent|safe }}
+                     </div>
+                    
+                  </div>
+             
+              
+
+                  </div>
+             
+                  
+                 
+                  
+               </div>
+            </div>
+         </div>
+      
+         </div>
+       
+      </main>
+{% endblock Content_Area %}
+{% block Java_Scripts %}
+{% endblock %}
+   

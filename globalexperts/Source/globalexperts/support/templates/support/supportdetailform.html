@@ -1,0 +1,151 @@
+{% extends 'default_theme/front/__Profilebase.html' %}
+{% load staticfiles %}
+{% block Style_sheets %}
+
+</style>
+{% endblock Style_sheets %}
+{% load form_custom %}
+{% load widget_tweaks %}
+{% block Content_Area %}
+<section class="myprofile-section myprofile-section-down">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+              <div class="myprofile-page deposit_page">
+                <h3 class="text-red dash_m_wallet">
+                  <div class="dash_l_wallet">SupportDetail</div>
+                </h3>
+                <form class="green_form supportForm" name="withdrawform" id="idwithdraw" method="POST" action="#" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form.media }}
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <div class="row mt-3">
+                       <div class="col-lg-12 col-md-12 col-12">
+                        <p>Subject </p>
+                        <p class="form-control" style="border-radius: 6px">{{support.subject}}</p>
+                       </div>
+                    </div>
+                    <div class="row mt-3">
+                       <div class="col-lg-12 col-md-12 col-12">
+                        <p>Message </p>
+                        <p class="form-control" style="border-radius: 6px">{{support.message}}</p>
+                       </div>
+                    </div>
+                    <div class="row mt-3">
+                       <div class="col-lg-12 col-md-12 col-12">
+                        <p>Attachments</p>
+                        {% if  support.attachment.url != '' %}
+                             <img src="{{ support.attachment.url}}" alt="Attachments Image" width='100' height='100'>
+                        {% else %}
+                                    
+                        {% endif %} 
+                       </div>
+                    </div>
+                    <div class="row mt-3">
+                       <div class="col-lg-12 col-md-12 col-12">
+                        <p>Message </p>
+                        <p class="form-control" style="border-radius: 6px">{{support.message}}</p>
+                       </div>
+                    </div>
+                    {% if staticcontent_qs.status == 2%}
+                     <div class="row mt-3">
+                       <div class="col-lg-12 col-md-12 col-12">
+                        <p>Reply Message </p>
+                       {%render_field form.message class+="" placeholder='Reply Message' %}
+                      {% if form.message.errors %}
+                      {% for error in form.message.errors %}
+                         <span class="text-danger">* {{ error|escape }} </span>
+                        {% endfor %}
+                      {% endif %}
+                       </div>
+                    </div>
+                    <div class="row mt-3">
+                       <div class="col-lg-12 col-md-12 col-12">
+                         <p>Attachments{% if form.attachment|req_label  %} <span class="text-danger"> * </span>{% endif %}</p>
+                        {%render_field form.attachment class+="" placeholder='Attachments ' %}
+                            {% if form.attachment.errors %}
+                            {% for error in form.attachment.errors %}
+                              <span class="text-danger">* {{ error|escape }} </span>
+                            {% endfor %}
+                            {% endif %}
+                       </div>
+                    </div>
+                 
+                    <div class="row mt-3">
+                       <div class="col-lg-12 col-md-12 col-12">
+                        <p>{%render_field form.agree class+=""  %} </p>
+                        I have to close the ticket
+
+                       </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-lg-12 col-md-12 col-12 text-right">
+                         <button class="addenquiry-btn" type="submit" >SUBMIT </button>
+                      </div>
+                    </div>
+                    {% endif %}
+                  </div>
+                   <div class="col-lg-6 col-md-6 col-12">
+                    <h4 class="text-red dash_m_wallet">
+                  <div class="dash_l_wallet">Tickets</div>
+                  </h4>
+                  <div class="tickets_accordion">
+            <div id="accordion_tickets">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    {% if supportdetail %}
+                    {% for item in supportdetail %}
+                    <a href="#" title="Detail" class="btn w-100">
+                    <div class="btn ticket_header d-flex align-items-center justify-content-between" data-toggle="collapse" href="#ticket_accordion_1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                      <div class="d-inline-flex align-items-center ticketLeft"> 
+                        <div class="ticket_date mr-sm-3">
+                          <div class="date_t">{{ item.created_on|date:"d" }}</div>
+                          <div class="month_t">{{ item.created_on|date:"b Y" }}</div>
+                        </div>
+                        <div class="ticket_title mr-auto">
+                          <div class="ticket_id">Subject : </div>
+                          <div class="ticketdate_equity">{{ item.subject }} </div>
+                        </div>
+                      </div> 
+                      <div class=" d-inline-flex align-items-center ticketRight">
+                        
+                        <div class="ticket_arrow">
+                         Attachments    :    <span>{% if  item.attachment.url != '' %}
+                             <img src="{{ item.attachment.url}}" alt="Attachments Image" width='75' height='75'>
+                             {% else %}
+                                
+                              {% endif %}</span>
+                        </div>
+                       </div> 
+                    </div>
+                    </a>
+                    {% endfor %}
+                    {% else %}
+                    <div class="btn ticket_header d-sm-flex align-items-center" data-toggle="collapse" href="#ticket_accordion_1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                      <div class="ticket_title mr-auto">
+                        No records found.
+                      </div>
+                    </div>
+                    {% endif %} 
+                  </h5>
+                </div>
+                
+              </div>    
+            </div><!--Accordion ends here-->
+          </div>
+                  </div>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+</section>
+{% endblock Content_Area %}
+{% block Java_Scripts %}
+<script type="text/javascript" src="{% static 'django_ajax/js/jquery.ajax.min.js' %}"></script>
+
+
+{% endblock %}

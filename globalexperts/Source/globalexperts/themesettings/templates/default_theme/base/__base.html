@@ -1,0 +1,152 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{comp_profile_name}} | {{Title}}</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
+  <link rel="stylesheet" href="{% static "admin_assets/bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "admin_assets/bower_components/font-awesome/css/font-awesome.min.css" %}">
+  <link rel="stylesheet" href="{% static "admin_assets/bower_components/Ionicons/css/ionicons.min.css" %}">
+  <link rel="stylesheet" href="{% static "admin_assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "admin_assets/dist/css/AdminLTE.min.css" %}">
+    <link rel="stylesheet" href="{% static "admin_assets/dist/css/skins/_all-skins.min.css" %}">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+ <link rel="stylesheet" href="{% static "admin_assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" %}">
+ <link rel="stylesheet" href="{% static "admin_assets/bower_components/boostarpdatetimepicker/css/bootstrap-datetimepicker.min.css" %}">
+ <link rel="stylesheet" href="{% static "admin_assets/lobibox/css/lobibox.min.css" %}">
+ <script src="{% static "admin_assets/bower_components/jquery/dist/jquery.min.js" %}"></script>
+  {% block Style_sheets %}
+<style>
+.google-visualization-orgchart-table{
+  border-collapse:separate;
+}
+</style>
+  {% endblock Style_sheets %}
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+   
+    <a href="/tradeadmin/dashboard/" class="logo">
+     
+      <span class="logo-mini">
+        {% if comp_company_logo %}
+           <img src="/media/{{ comp_company_logo }}" alt="company logo"  />
+          {%else%}
+          <b>{{ comp_profile_name }}</b>
+        {% endif %}
+
+      </span>
+     
+      {% load static %}
+      <span class="logo-lg">
+          {% if comp_company_logo %}
+          <img src="/media/{{ comp_company_logo }}"   />
+          {%else%}
+          <b>{{ comp_profile_name }}</b>
+          {% endif %}
+      </span>
+    </a>
+    
+    {% block Nav_bar %}
+  
+        {% include  "default_theme/base/__Nav_Bar.html" %}
+  
+    {% endblock Nav_bar %}
+    
+    {% block Profile_Settings %}
+      
+            {% include  "default_theme/base/_ProfileSetting.html" %}
+      
+    {% endblock Profile_Settings %}
+         {% comment %}
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+         {% endcomment %} 
+        </ul>
+      </div>
+    </nav>
+  </header>
+ <!-- BEGIN SIDEBAR -->
+  {% block Side_bar %}
+
+      {% include  "default_theme/base/_side_bar.html" %}
+        
+  {% endblock Side_bar %}
+  <div class="content-wrapper">
+    {% block BreadCrumbs %}
+      {% include  "default_theme/base/_breadCRUMB.html" %}
+    {% endblock BreadCrumbs %}
+    
+    {% block Content_Area %}
+        {% include  "default_theme/base/maincontent.html" %}
+    {% endblock Content_Area %}
+   
+  </div>
+  {% block Footer %}
+        {% include  "default_theme/base/_Footer.html" %}
+  {% endblock Footer %}
+</div>
+<script src="{% static "admin_assets/bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+<script src="{% static "admin_assets/bower_components/datatables.net/js/jquery.dataTables.min.js" %}"></script>
+<script src="{% static "admin_assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js" %}"></script>
+<script src="{% static "admin_assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js" %}"></script>
+<script src="{% static "admin_assets/dist/js/adminlte.min.js" %}"></script>
+<script src="{% static "admin_assets/plugins/iCheck/icheck.min.js" %}"></script>
+<script src="{% static "admin_assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" %}"></script>
+<script src="{% static "admin_assets/bower_components/boostarpdatetimepicker/js/bootstrap-datetimepicker.js" %}"></script>
+<script src="{% static "admin_assets/bower_components/boostarpdatetimepicker/js/locales/bootstrap-datetimepicker.fr.js" %}"></script>
+<script src="{% static "admin_assets/lobibox/js/lobibox.min.js" %}"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : false,
+      'aaSorting': [[0, 'desc']]
+    })
+  })
+  $('.datepicker').datepicker({
+      autoclose: true
+    })
+</script>
+<script>
+  $(document).ready(function(){
+   document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+      }, false)
+  
+  });
+  $(document).keydown(function (event) {
+        if (event.keyCode == 123) // Prevent F12
+        { 
+            return false;
+        } 
+        else if(event.ctrlKey && event.shiftKey && event.keyCode == 73)
+        {         
+            return false;
+        }
+    });
+</script>
+
+
+
+
+
+
+{% block Java_Scripts %}
+   
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends 'default_theme/front/__staticbase.html' %}
+{% load staticfiles %} 
+{% block Style_sheets %}
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+
+{% block Content_Area %}
+
+<div class="howto-buy-bbf-section">
+       <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="contact-l aos-init aos-animate" data-aos="flip-right">
+            <div>
+              {% comment %}
+               <h1 class="section_big_heading width_half">Contact Us</h1>
+              
+              <h6 class="text-yellow">Get a quote</h6>
+              <p class="text-white padd-bot-10">If you are interested or have any questions,send us message.</p>
+              {% endcomment %}
+             <div class="con_left_sec">
+             <p>Email Social: Social@dxbpay.cc</p>
+             <p>Email Admin: Admin@dxbpay.cc</p>
+             <p>Telegram : <a href="https://t.me/DXBPay">https://t.me/DXBPay</i></a></p>
+           </div>
+
+          <ul class="footer-social-col mt-4">
+             {% comment %}
+            <li><a href="{{companyqs.fb}}" target="_blank" class="footer-links"><i class="fab fa-facebook"></i></a></li>
+            
+            <li><a href="{{companyqs.twitter}}" target="_blank" class="footer-links"><i class="fab fa-twitter"></i></a></li>
+           
+            <li><a href="{{companyqs.gplus}}" target="_blank"  class="footer-links"><i class="fab fa-youtube"></i></a></li>
+            {% endcomment %}
+            </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <form class="contact_form" method="POST" action="/global/contactus/" >
+            {% csrf_token %}
+            {{ form.media }}
+          <div class="contact-r aos-init aos-animate contact_bg" data-aos="flip-right">
+            <div class="contact-sec-main d-flex">
+              <div class="contact-sec-1">
+                <input type="text" name="name" id="id_name" value="" required placeholder="Enter Name">
+              </div>
+              <div class="contact-sec-2">
+                <input type="email" name="email" id="id_email" required value="" placeholder="Enter e-mail address">
+              </div>
+            </div>
+            <div class="contact-sec-main d-flex">
+            <div class="contact-sec-1">
+              {% comment %}
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Select subject</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            {% endcomment %}
+            <input type="text" name="subject" value="" id="id_subject" placeholder="Subject" required>
+            </div>
+            </div>
+            <div class="contact-sec-main2">
+              <textarea placeholder="Enter message" name="message" id="id_message"required></textarea>
+            </div>
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+             <div class="g-recaptcha" data-sitekey="6LfOCpYbAAAAAL_33CjuKZhX2ZOV_EkliV5YptXd"></div>
+            <br/>
+            <div class="text-center">
+              <button class="btn-primary" name="conatctsubmit" type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+        </div>
+        </div>
+        </div>
+</div>
+{% endblock Content_Area %}
+
+{% block Java_Scripts %}
+{% endblock %}

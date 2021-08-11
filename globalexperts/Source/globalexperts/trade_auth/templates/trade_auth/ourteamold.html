@@ -1,0 +1,67 @@
+{% extends 'default_theme/front/__staticbase.html' %}
+{% load staticfiles %} 
+{% block Style_sheets %}
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+
+{% block Content_Area %}
+<div class="howto-buy-bbf-section">
+        <div class="container">
+        <div class="row align-items-center">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="common_para">
+                  <h1 class="section_big_heading text-center width_half">{{Title}}</h1>
+                  <div> </div>
+                </div>
+              </div>
+                <div class="col-md-12">
+                          <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner">
+                                 <div class="carousel-item active">
+                                    <div class="row">
+                                      {% if testimonialqs %}
+                                      {% for item in testimonialqs %}
+                                      <div class="col-md-3 mb-2">
+                                       <div class="howto-buy-bbf-m aos-init aos-animate text-center" data-aos="flip-right">
+                                        {% if  item.photo.url != None %}
+                                          <img src="{{ item.photo.url}}" class="img-fluid">
+                                        {% else %}
+                                         <img src="" class="img-fluid" alt="Photos">
+                                        {% endif%}
+                                        <h5 class="mt-3">{{item.name}}</h5>
+                                       <p>{{item.location}}</p>
+                                        </div>
+                                      </div>
+                                      {% endfor %}
+                                      {% else %}
+                                       <div class="col-md-3 mb-2"><h5 class="mt-3">No Records Found.</h5></div>
+                                      {% endif%}
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <a data-slide="prev" href="#blogCarousel" class="left carousel-control">‹</a>
+                              <a data-slide="next" href="#blogCarousel" class="right carousel-control">›</a>
+                         </div>
+                          
+                      </div>
+            
+              
+                
+              
+              </div>
+
+
+          </div>
+        </div>
+{% endblock Content_Area %}
+{% block Java_Scripts %}
+<script type="text/javascript">
+      $( document ).ready(function() {
+        
+        $('#blogCarousel').carousel({
+        interval: 5000
+        });
+    });
+    </script> 
+{% endblock %}

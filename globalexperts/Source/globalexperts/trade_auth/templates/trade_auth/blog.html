@@ -1,0 +1,56 @@
+{% extends 'default_theme/front/__staticbase.html' %}
+{% load staticfiles %} 
+{% block Style_sheets %}
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+{% block Content_Area %}
+<main>
+   <div class="how-all-start-section">
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="bbf-whitepaper-m mt-5">
+                  <h1 class="section_big_heading text-center width_half">COMING SOON</h1>
+                  <div> </div>
+               </div>
+            </div>
+         </div>
+         
+         <div class="row aos-init aos-animate" data-aos="zoom-in">
+            {% if blogqs %}
+            {% for i in blogqs %}
+            <div class="col-xs-4 col-sm-4 col-md-4">
+               <div class="mt-3">
+                   {% if  i.blogimage.url != None %}
+                  <img src="{{ i.blogimage.url }}" class="img-fluid">
+                  {% else %}
+                  <img src="" class="img-fluid" alt="blogimage">
+                  {% endif %}
+                   <h5 class="mt-4">{{ i.blogtitle }}</h5>
+                   <p class="text-gray mt-3">{{ i.blogsubject }}</p>
+                  <div class="coins-btn">
+                    <a href="/global/bloginfo/{{ i.id }}/" class="btn-primary">View Detail</a>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div>
+              <div class="col-xs-4 col-sm-4 col-md-4">
+               <div class="mt-3">
+                  <p>No Blogs </p>
+                  </div>
+               </div>
+            </div>
+            </div>
+            {% endif %}
+         </div>
+         
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock Content_Area %}
+{% block Java_Scripts %}
+{% endblock %}
+   

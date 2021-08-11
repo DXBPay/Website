@@ -1,0 +1,101 @@
+{% extends 'default_theme/front/__staticbase.html' %}
+{% load staticfiles %} 
+{% block Style_sheets %}
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+
+{% block Content_Area %}
+<div class="how-all-start-section">
+            <div class="container">
+             
+               <div class="row justify-content-center">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                     <div class="bbf-whitepaper-m mt-5">
+                        <h1 class="section_big_heading text-center width_half">{{ aboutussubone.title}}</h1>
+                        <p class="section_big_heading text-center width_half">
+                          DXB Token’s contract follows an intelligent two burning mechanisms and rewards system spread across two stages.
+                          Token Burn continues until Stage two is achieved
+                        </p>
+                        <div class="MainContentRight">
+                           <div class="row justify-content-center">
+                              <div class="col-xs-5 col-sm-3 col-md-3">
+                                 <div class="innerFormSection">
+                                    <ul class="nav nav-tabs justify-content-around navTabs">
+                                       <li class="nav-item p-0">
+                                          <a class="nav-link active" data-toggle="tab" href="#bscActive">DXB Tokenomics</a>
+                                       </li>
+                                       <li class="nav-item p-0">
+                                          <a class="nav-link" data-toggle="tab" href="#bscInactive">Cycle Burn</a>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="homeWalletContainer">
+                              <div class="tab-content navTabContent with_transparnet">
+                                 <div id="bscActive" class="tab-pane active">
+                               
+                                    <div class="row justify-content-center mt-4 innerFormSection1">
+                                      <ul class="nav nav-tabs justify-content-around navTabs">
+                                          <li class="nav-item p-0">
+                                             <a class="nav-link active" data-toggle="tab" href="#bsc1">{{aboutussubtwo.title}}</a>
+                                          </li>
+                                          <li class="nav-item p-0">
+                                             <a class="nav-link" data-toggle="tab" href="#bsc2">{{aboutussubthree.title}}</a>
+                                          </li>
+                                       </ul>
+
+                                       <div class="tab-content">
+                                          <div class="row justify-content-center m-4">
+                                          </div>
+                                         <div class="bg_blue_sec tab-pane active" id="bsc1">
+                                       <img src="{% static "frontend_assets/images/DXB-token-Fee-2-White.png"%}"   class="img-fluid" alt="" title="">
+                                      </div>
+                                        <div class="bg_blue_sec tab-pane fade" id="bsc2">
+                                      <img src="{% static "frontend_assets/images/Stage-Two-White.png"%}" class="img-fluid" alt="" title="">
+                                      </div>
+                                       </div>
+                                    </div>
+                                    
+                                 </div>
+                                 <div id="bscInactive" class="tab-pane fade mt-4">
+
+                                    <div class="row justify-content-center pckCardRow">
+                                       <img src="{% static "frontend_assets/images/DXB-Cycle-Burn-White.png"%}" class="img-fluid" alt="" title="">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+              <div class="row justify-content-center">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                     <div class="bbf-whitepaper-m mt-5">
+                        <h1 class="section_big_heading text-center width_half">{{tokenheading.title}}</h1>
+                        <div> </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                     <div class="down-white-l" data-aos="flip-right">
+                        <div class="bbf-whitepaper-l-box">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    {{tokenheading.content|safe}}
+                  </div>
+</div>
+            </div>
+         </div>
+{% endblock Content_Area %}
+
+{% block Java_Scripts %}
+{% endblock %}
+
+
+
+
+
+

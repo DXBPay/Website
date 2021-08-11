@@ -1,0 +1,140 @@
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;display=swap" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" />
+<style type="text/css">table{width:100%;}
+
+.orange-btn:hover{
+	background-image: linear-gradient(to bottom, #9d0e14, #ef1d26) !important;
+}
+	.social_icon td:hover
+	{
+		background:#2f2fee;
+		cursor: pointer;
+		border-radius: 50px;
+	}	
+	.social_icon td .active
+	{
+		background:#2f2fee;
+		cursor: pointer;
+		border-radius: 50px;
+	}	
+	.social_icon td {
+    background: transparent;
+    padding: 2px;
+    border: 1px solid #2f2fee;
+    color: #fff;
+    height: 30px;
+    border-radius: 50px;
+    line-height: 20px;
+    font-size: 16px;
+    text-align: center;
+    width: 30px;
+}
+.email_bg	
+{
+background:#000080;
+    padding: 50px 0 0px 0px;
+    margin: 0;
+
+    background-size: cover;	}	
+/* Mobile styles */
+@media (min-width: 800px) {
+	.mobile-shell{
+		margin:10px auto !important;
+	}
+}
+@media (max-device-width: 800px) {
+	.mobile-shell table{ width: 100% !important; min-width: 100% !important; }
+}
+@media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
+	.mobile-shell { width: 100% !important; min-width: 100% !important; }
+	.fluid-img img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+}
+</style>
+<table class="mobile-shell" style="background:#fff; border-collapse: collapse; max-width: 680px;min-width: 680px; margin:0px auto; text-align:center;">
+	<tbody>
+		<tr class="email_bg">
+			<td>
+			<table>
+				<tbody>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center" style="margin-top: 20px;"><img alt="Logo" border="0" src="/static/frontend_assets/images/logo1.png" /></td>
+					</tr>
+					<tr>
+						<td align="center" colspan="2">
+						<p style="margin:0px 0;">&nbsp;</p>
+
+						<p style="color:#fff; font-size:14px;">Hi,{{ username }}</p>
+
+						<p style="font-size: 45px;color:#fff;margin:0;">Welcomt to DXB Coin</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="background: #000080;padding:10px 60px;">
+			<table>
+				<tbody>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<h5 style="color:#d3af35;font-size: 22px;margin: 0;">Admin Reply Message for Contactus</h5>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td style="color:#b7b8c3;">
+						<p>{{ reply }}</p>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+					</tr>
+					<tr>
+						<td>
+						<p style="color:#dfdfdf;margin-bottom: 24px;">{{company_name}}</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" style="/* background-image: linear-gradient(to bottom, #ee1d26, #7e080e); */padding: 31px 51px;background: #000080;border-top: 1px solid #2f2fee;">
+			<p style="color:#b7b8c3;font-style: italic;line-height: 24px;">Important Note: company name never ask for your company passcode or bank details over email/phone. Please do not share your company passcode with anyone. For any questions write to support@ bbf.com</p>
+
+			<table style="width:auto;margin-top:5px;">
+				<tbody>
+					<tr>
+					</tr>
+					<tr class="social_icon">
+						<td style="">&nbsp;</td>
+						<td style="">&nbsp;</td>
+					</tr>
+					<tr>
+					</tr>
+				</tbody>
+			</table>
+
+			<p style="color:#b7b8c3;">&copy; {{years}} {{company_name}}. All Rights Reserved</p>
+			</td>
+		</tr>
+	</tbody>
+</table>

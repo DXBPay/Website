@@ -1,0 +1,43 @@
+{% extends 'default_theme/front/__staticbase.html' %}
+{% load staticfiles %} 
+{% block Style_sheets %}
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+
+{% block Content_Area %}
+<div class="howto-buy-bbf-section">
+    <div class="container">
+
+
+     <h3 class="section_big_heading width_half">{{cms_content.title}}</h3>
+     
+<div class="row justify-content-center">
+        
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="contact-l aos-init aos-animate" data-aos="flip-right">
+               {{cms_content.content|safe}}
+          </div>
+        </div>
+         <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="privacy_sec_img aos-init aos-animate mt-3" data-aos="flip-right">
+      <img src="{% static "frontend_assets/images/privacy.png"%}" class="img-fluid">
+          </div>
+        </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="contact-l aos-init aos-animate" data-aos="flip-right">
+
+            {{cms_content_twores.content|safe}}
+
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+       </div>
+{% endblock Content_Area %}
+
+{% block Java_Scripts %}
+{% endblock %}

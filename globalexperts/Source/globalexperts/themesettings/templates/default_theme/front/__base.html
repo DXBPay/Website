@@ -1,0 +1,269 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>{{comp_profile_name}}</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="shortcut icon" type="image/png" href="/media/{{company_fav}}"/>
+
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <link href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="{% static "frontend_assets/css/style.css"%}">
+      <link rel="stylesheet" href="{% static "frontend_assets/css/responsive.css"%}" >
+      <link rel="stylesheet" href="{% static "frontend_assets/css/animate.css"%}">
+      <link rel="stylesheet" href="{% static "frontend_assets/css/aos.css"%}">
+      <link rel="stylesheet" href="{% static "frontend_assets/lobibox/css/lobibox.min.css" %}">
+      
+   </head>
+   <body class="pos_rel">
+    <div id="particles-js"></div>
+      {% block Header %}
+         {% include  "default_theme/front/__header.html" %}
+      {% endblock Header %}
+      <main>
+         {% block Liquidity %}
+            {% include  "default_theme/front/__liquidity.html" %}
+         {% endblock Liquidity %}
+         <div class="how-all-start-section">
+            <div class="container">
+              {% block Tokenomics %}
+                  {% include  "default_theme/front/__tokenomics.html" %}
+              {% endblock Tokenomics %}
+              {% block Tokendetails %}
+                  {% include  "default_theme/front/__tokendetails.html" %}
+              {% endblock Tokendetails %}
+              
+            </div>
+         </div>
+        <div>
+          {% block Dxdlisted %}
+                {% include  "default_theme/front/__dxdlisted.html" %}
+              {% endblock Dxdlisted %}
+        </div>
+         
+
+         {% block Footer %}
+            {% include  "default_theme/front/__Footer.html" %}
+         {% endblock Footer %}
+          {% block Modal %}
+            {% include  "default_theme/front/__modal.html" %}
+         {% endblock Modal %}
+         
+      </main>
+   </body>
+</html>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script type="text/javascript">
+   particlesJS("particles-js", {
+   "particles": {
+     "number": {
+       "value": 150,
+       "density": {
+         "enable": true,
+         "value_area": 789.1476416322727
+       }
+     },
+     "color": {
+       "value": "#ffffff"
+     },
+     "shape": {
+       "type": "circle",
+       "stroke": {
+         "width": 0,
+         "color": "#000000"
+       },
+       "polygon": {
+         "nb_sides": 5
+       },
+       "image": {
+         "src": "img/github.svg",
+         "width": 100,
+         "height": 100
+       }
+     },
+     "opacity": {
+       "value": 0.48927153781200905,
+       "random": false,
+       "anim": {
+         "enable": true,
+         "speed": 2,
+         "opacity_min": 0,
+         "sync": false
+       }
+     },
+     "size": {
+       "value": 2,
+       "random": true,
+       "anim": {
+         "enable": true,
+         "speed": 2,
+         "size_min": 0,
+         "sync": false
+       }
+     },
+     "line_linked": {
+       "enable": false,
+       "distance": 150,
+       "color": "#1f2e4d",
+       "opacity": 0.4,
+       "width": 1
+     },
+     "move": {
+       "enable": true,
+       "speed": 0.2,
+       "direction": "none",
+       "random": true,
+       "straight": false,
+       "out_mode": "out",
+       "bounce": false,
+       "attract": {
+         "enable": false,
+         "rotateX": 600,
+         "rotateY": 1200
+       }
+     }
+   },
+   "interactivity": {
+     "detect_on": "canvas",
+     "events": {
+       "onhover": {
+         "enable": true,
+         "mode": "bubble"
+       },
+       "onclick": {
+         "enable": true,
+         "mode": "push"
+       },
+       "resize": true
+     },
+     "modes": {
+       "grab": {
+         "distance": 400,
+         "line_linked": {
+           "opacity": 1
+         }
+       },
+       "bubble": {
+         "distance": 83.91608391608392,
+         "size": 1,
+         "duration": 3,
+         "opacity": 1,
+         "speed": 3
+       },
+       "repulse": {
+         "distance": 200,
+         "duration": 0.4
+       },
+       "push": {
+         "particles_nb": 4
+       },
+       "remove": {
+         "particles_nb": 2
+       }
+     }
+   },
+   "retina_detect": true
+   });
+</script>
+
+<script src="{% static "frontend_assets/js/viewportchecker.js"%}"></script>
+
+<script src="{% static "frontend_assets/js/web3.min.js"%}"></script>
+
+<script src="{% static "frontend_assets/js/djQ4R2.js"%}"></script>
+
+
+<script type="text/javascript" src="{% static "frontend_assets/js/jquery.scrollbox.js"%}">
+  
+</script>
+
+<script>
+   function openCity(evt, cityName) {
+     var i, tabcontent_plan, tablinks;
+     tabcontent_plan = document.getElementsByClassName("tabcontent_plan");
+     for (i = 0; i < tabcontent_plan.length; i++) {
+       tabcontent_plan[i].style.display = "none";
+     }
+     tablinks = document.getElementsByClassName("tablinks");
+     for (i = 0; i < tablinks.length; i++) {
+       tablinks[i].className = tablinks[i].className.replace(" active", "");
+     }
+     document.getElementById(cityName).style.display = "block";
+     evt.currentTarget.className += " active";
+   }
+</script>
+<script>
+    $(document).ready(function(){
+
+        {% if messages %}
+        var type = '';
+        var message ='';
+
+        {% for message in messages %}   
+         type ='{{ message.tags }}';
+         message = '{{ message}}';
+        {% endfor %}
+        if (type =='alert-success'){
+          
+            var success_text =  message;
+            Lobibox.notify('success', {
+            title:'Success',
+            continueDelayOnInactiveTab: false,
+            pauseDelayOnHover: true,
+            sound: false,
+            position: 'right top',
+            msg: success_text
+            });
+          }
+         else {
+            var error_text = message
+            Lobibox.notify('warning', {
+            title:'Error',
+            continueDelayOnInactiveTab: false,
+            pauseDelayOnHover: true,
+            sound: false,
+            position: 'right top',
+            msg: error_text
+            });
+
+        }
+
+       {% endif %}
+        
+      });
+</script>
+<script>
+  $(document).ready(function(){
+   document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+      }, false)
+    
+  });
+  $(document).keydown(function (event) {
+        if (event.keyCode == 123) // Prevent F12
+        { 
+            return false;
+        } 
+        else if(event.ctrlKey && event.shiftKey && event.keyCode == 73)
+        {         
+            return false;
+        }
+    });
+</script>
+<script src="{% static "frontend_assets/js/jquery.min.js"%}"></script>
+<script src="{% static "frontend_assets/js/aos.js"%}"></script>
+<script src="{% static "frontend_assets/js/main.js"%}"></script>
+<script src="{% static "frontend_assets/lobibox/js/lobibox.min.js" %}"></script>
+
+
+
+
+
+

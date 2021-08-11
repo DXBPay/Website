@@ -1,0 +1,82 @@
+{% extends 'default_theme/front/__staticbase.html' %}
+{% load staticfiles %} 
+{% block Style_sheets %}
+{% endblock Style_sheets %}
+{% load widget_tweaks %}
+
+{% block Content_Area %}
+ <div class="howto-buy-bbf-section">
+            <div class="container">
+               <h3 class="section_big_heading width_half">{{aboutuspage.title}}</h3>
+               <div class="row justify-content-center">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                     <div class="contact-l aos-init aos-animate" data-aos="flip-right">
+                        {{aboutuspage.content|safe}}
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                     <div class="privacy_sec_img aos-init aos-animate mt-3" data-aos="flip-right">
+                        <img src="{% static "frontend_assets/images/about.png"%}" class="img-fluid">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="howto-buy-bbf-section">
+            <div class="container">
+               <div class="row justify-content-center burn_sec">
+                  <div class="col-xs-12 col-sm-4 col-md-4">
+                     <div class="howto-buy-bbf-m" data-aos="flip-right">
+                        <h2>{{tokenvalue.content|safe}}</h2>
+                        <h5>{{tokenvalue.title}}</h5>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 col-md-4">
+                     <div class="howto-buy-bbf-m buy-left-border" data-aos="flip-right">
+                        <h2>{{tokenholder.content|safe}} </h2>
+                        <h5>{{tokenholder.title}}</h5>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 col-md-4">
+                     <div class="howto-buy-bbf-m buy-left-border" data-aos="flip-right">
+                        <h2>{{tokenliquidity.content|safe}}</h2>
+                        <h5>{{tokenliquidity.title}}</h5>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4 mb-2 pl-0">
+                  <div class="howto-buy-bbf-m aos-init aos-animate about_clr" data-aos="flip-right">
+                     <img src="{% static "frontend_assets/images/a1.png"%}" class="img-fluid">
+                     <h5 class="mt-3">{{aboutuscontent1.title}}</h5>
+                     <p>
+                      {{aboutuscontent1.content|safe}}
+                     </p>
+                  </div>
+               </div>
+               <div class="col-md-4 mb-2 pl-0 pr-0">
+                  <div class="howto-buy-bbf-m aos-init aos-animate about_clr" data-aos="flip-right">
+                     <img src="{% static "frontend_assets/images/a2.png"%}" class="img-fluid">
+                     <h5 class="mt-3">{{aboutuscontent2.title}}</h5>
+                     <p>
+                       {{aboutuscontent2.content|safe}}
+                     </p>
+                  </div>
+               </div>
+               <div class="col-md-4 mb-2 pr-0 pr-0">
+                  <div class="howto-buy-bbf-m aos-init aos-animate about_clr" data-aos="flip-right">
+                     <img src="{% static "frontend_assets/images/a3.png"%}" class="img-fluid">
+                     <h5 class="mt-3">{{aboutuscontent3.title}}</h5>
+                     <p> {{aboutuscontent3.content|safe}}
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+{% endblock Content_Area %}
+
+{% block Java_Scripts %}
+{% endblock %}

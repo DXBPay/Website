@@ -1,0 +1,69 @@
+{% load staticfiles %}
+ <header class="home-page-header">
+         <div class="top-menu">
+            <nav class="navbar navbar-expand-md justify-content-center index-header navbar-fixed-top">
+               <div class="container">
+                  <div class="logo_header">
+                     <a class="navbar-brand" href="/"><img src="/media/{{comp_company_logo}}" class="img-fluid"></a>
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">  <span class="navbar-toggler-icon fa fa-fw fa-align-justify"></span> </button>
+                  </div>
+                  <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+                     <ul class="navbar-nav ml-auto text-center center-nav-links">
+                        <li class="nav-item"><a class="nav-link {% if activetab == 'home'%} active {% endif %}" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link {% if activetab == 'whitepaper'%} active {% endif %}" href="/global/whitepaper/">Whitepaper</a></li>
+                        <li class="nav-item"><a class="nav-link {% if activetab == 'buytoken'%} active {% endif %}" href="/global/buytoken/"> Tokenomics</a></li>
+                         
+                        <li class="nav-item"><a class="nav-link {% if activetab == 'roadmap'%} active {% endif %}" href="/global/roadmap/">Roadmap</a></li>
+                        <li class="nav-item"><a class="nav-link {% if activetab == 'blog'%} active {% endif %}" href="/global/blog/">Blog</a></li>
+                          {% if request.session.walletaddress != '' and request.session.walletaddress != None%}
+                           <li class="nav-item dis_none"> <div class="dropdown show">
+                             <button class="btn-primary1 dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                               {{request.session.walletaddress|slice:":15"}} ...
+                             </button>
+                             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                              <a class="dropdown-item" href="/global/walletdetails/">Wallet Details</a>
+                               <a class="dropdown-item" href="/global/disconnectwallet/">Disconnect</a>
+                             </div>
+                           </div></li>
+                        {% else %}
+                            <li class="nav-item dis_none">
+                              <button class="btn-primary1 click_metamaskcls" id="click_metamask">Connect Wallet</button>
+                              {% comment %}
+                               <button class="btn-primary1" data-toggle="modal" data-target="#exampleModalw">Connect Wallet</button>
+                              {% endcomment%}
+                           </li>
+                        {% endif %}
+                     </ul>
+                  </div>
+               </div>
+            </nav>
+         </div>
+         <div class="banner-section">
+            <div class="container">
+               <div class="row" data-aos="zoom-in">
+                  <div class="col-xs-12 col-sm-6 col-md-6 post">
+                     <div class="banner-sec-inner">
+                        <h6 class="text-left">{{content_discover.title}}</h6>
+                        <h1 class="text-left">{{content_discover.content|safe}}</h1>
+                        <p class="text-white text-left font18">{{content_bannerone.content|safe}}
+                        </p>
+                        <!-- <div class="coins-btn text-left">
+                           <button class="btn-primary">Login</button>
+                           &nbsp;&nbsp;
+                           <button class="btn-secondary">Buy Now</button>
+                           </div> -->
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6 post">
+                     <div class="">
+                        <img src="{% static "frontend_assets/images/right_img.png"%}" class="img-fluid" alt="" title="">
+                     </div>
+                     <div class="coins-btn justify-content-center d-flex mt-3">
+                     <a href="https://t.me/DXBPay" target="__blank" class="btn btn-primary">Join DXB Presale</a>
+                   </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+

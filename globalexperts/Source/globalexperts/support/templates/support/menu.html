@@ -1,0 +1,35 @@
+ {% comment %}
+ {% if menu_permissions_ticket == 1 or menu_permissions_ticket == 2 %}
+ 
+<li class=" {% if activecls == 'supportadmin'%} active {% endif %}treeview">
+          <a href="#">
+            <i class="fa fa-support"></i> <span>Support</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'support:supportcategorylist' %}"><i class="fa fa-circle-o"></i> Category </a></li>
+             <li><a href="{% url 'support:ticketsupportlist' %}"><i class="fa fa-circle-o"></i> Tickets </a></li>
+           
+          </ul>
+        </li>
+ {% endif%}
+ {% endcomment %}
+
+
+<li class="{% if activecls == 'newsletteradmin' %} active {% endif %} treeview">
+          <a href="#">
+            <i class="fa fa-newspaper-o"></i> <span>Manage Newsletter</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'support:subscribelist' %}"><i class="fa fa-circle-o"></i> Subscribe user list </a></li>
+            <li><a href="{% url 'support:newsletter_add' %}"><i class="fa fa-circle-o"></i> Newsletter </a></li>
+             
+           
+          </ul>
+        </li>
+
